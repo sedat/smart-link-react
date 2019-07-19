@@ -37,7 +37,7 @@ class Link extends Component {
     if (url[12] === 'y') {
       let id = this.extractVideoIdFromYouTubeUrl(url)
 
-      fetch('https://www.googleapis.com/youtube/v3/videos?part=snippet&fields=items/snippet(thumbnails)&key=AIzaSyANuQHTRZIT0EPAO7kNK2UCM2kmlen1rzQ&id=' +id)
+      fetch(`https://www.googleapis.com/youtube/v3/videos?part=snippet&fields=items/snippet(thumbnails)&key=${key}&id=${id}`)
         .then(res => res.json()).then(data => this.setState({ thumb: data.items[0].snippet.thumbnails.standard.url}))
     }
     else if (url[12] === 'd') {
